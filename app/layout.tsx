@@ -21,8 +21,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-theme="light"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script src={`https://kit.fontawesome.com/${process.env.NEXT_PUBLIC_FONTAWESOME_KIT_ID}.js`} crossOrigin="anonymous"></script>
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
