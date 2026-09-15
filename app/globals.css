@@ -5,8 +5,11 @@
     dark --prefersdark;
 }
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+/* @custom-variant light (&:where([data-theme=light], [data-theme=light] *)); */
+
 :root {
-  --background: #ffffff;
+  --background: #c8c8c8;
   --foreground: #171717;
 }
 
