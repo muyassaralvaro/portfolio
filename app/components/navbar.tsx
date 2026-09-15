@@ -1,6 +1,27 @@
-export default function Navbar() {
+"use client";
+
+import React, { useState, useEffect } from 'react';
+
+export default function Navbar({active="Homepage"}: {active?: string}) {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") ?? "light";
+
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    setIsDark(savedTheme === "dark");
+  }, []);
+
+  function handleThemeChange() {
+    const newTheme = isDark ? "light" : "dark";
+
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    setIsDark(!isDark);
+  }
+
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm fixed top-0 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -26,22 +47,22 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a>Homepage</a>
+              <a className="text-base-content">Homepage</a>
             </li>
             <li>
-              <a>Portfolio</a>
+              <a className="text-base-content">Portfolio</a>
             </li>
             <li>
-              <a>About</a>
+              <a className="text-base-content">About</a>
             </li>
           </ul>
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">A.M</a>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-ghost btn-circle">
+        {/* <button className="btn btn-ghost btn-circle">
           <svg
             aria-label="Search"
             xmlns="http://www.w3.org/2000/svg"
@@ -58,43 +79,18 @@ export default function Navbar() {
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />{" "}
           </svg>
-        </button>
-        <label className="flex cursor-pointer gap-2 items-center">
-          {/* <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <circle cx="12" cy="12" r="5" />
-            <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
-          </svg> */}
+        </button> */}
+        <label className="flex cursor-pointer gap-2 items-center ml-4">
           <i
-          className="fa-solid fa-sun text-dark">
+          className="fa-solid fa-sun text-dark dark:text-white">
           </i>
           <input
             type="checkbox"
-            value="dark"
-            className="toggle theme-controller"
+            checked={isDark}
+            onChange={handleThemeChange}
+            className="toggle"
           />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
+          <i className="fa-solid fa-moon text-dark dark:text-white"></i>
         </label>
       </div>
     </div>
