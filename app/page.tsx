@@ -65,7 +65,7 @@ export default function Home() {
       {/* about */}
       <section className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse w-screen items-center">
-          <Reveal delay={0.2}>
+          <Reveal delay={0.25}>
             <div className="aura w-full basis-2/4 text-blue-500 shadow-lg dark:shadow-white/30">
               <CodeMockup />
             </div>
