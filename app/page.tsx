@@ -4,6 +4,7 @@ import CodeMockup from "./components/code-mockup";
 import TimelinePoint from "./components/timeline-point";
 import Hero from "./components/potraithero";
 import Reveal from "./components/reveal-animation";
+import ProjectCard from "./components/project-card";
 
 const experiences = [
   {
@@ -13,13 +14,13 @@ const experiences = [
       "The Apple Macintosh—later rebranded as the Macintosh 128K—is the original Apple Macintosh personal computer. It played a pivotal role in establishing desktop publishing as a general office function. The motherboard, a 9 in (23 cm) CRT monitor, and a floppy drive were housed in a beige case with integrated carrying handle; it came with a keyboard and single-button mouse.",
     keyword: ["Laravel", "MySQL", "Tailwind CSS", "Bootstrap", "Typescript"],
   },
-  {
-    year: "2023",
-    title: "Information Systems Student | Politeknik STMI Jakarta",
-    description:
-      "The Apple Macintosh—later rebranded as the Macintosh 128K—is the original Apple Macintosh personal computer. It played a pivotal role in establishing desktop publishing as a general office function. The motherboard, a 9 in (23 cm) CRT monitor, and a floppy drive were housed in a beige case with integrated carrying handle; it came with a keyboard and single-button mouse.",
-    keyword: ["Python", "Laravel", "React", "Node.js", "Next.JS", "Javascript"],
-  },
+  // {
+  //   year: "2023",
+  //   title: "Information Systems Student | Politeknik STMI Jakarta",
+  //   description:
+  //     "The Apple Macintosh—later rebranded as the Macintosh 128K—is the original Apple Macintosh personal computer. It played a pivotal role in establishing desktop publishing as a general office function. The motherboard, a 9 in (23 cm) CRT monitor, and a floppy drive were housed in a beige case with integrated carrying handle; it came with a keyboard and single-button mouse.",
+  //   keyword: ["Python", "Laravel", "React", "Node.js", "Next.JS", "Javascript"],
+  // },
   {
     year: "2022",
     title: "Front-End Mentor | IT Club SMKN 12 Jakarta",
@@ -36,11 +37,29 @@ const experiences = [
   },
 ];
 
+const projects = [
+  {
+    title: "Work Permit Management System",
+    imageTitle: "workpermit",
+    description: "Digitalized PT. Kayaba Indonesia permit-to-work management and creation flow using laravel, connecting internal company with external company's suppliers.."
+  },
+  {
+    title: "EHS Academy",
+    imageTitle: "ehs-academy",
+    description: "Learning Management System for EHS Department at PT. Kayaba Indonesia featuring Courses, Lessons, and Quizes with additional Kiken Yochi; Hazard Identifying."
+  },
+  {
+    title: "Genba Safety Compilance",
+    imageTitle: "workpermit",
+    description: "Learning Management System for EHS Department at PT. Kayaba Indonesia featuring Courses, Lessons, and Quizes with additional Kiken Yochi; Hazard Identifying."
+  },
+];
+
 export default function Home() {
   var active = "Homepage";
 
   return (
-    <main className="bg-base-100 bg-[url('/img/pattern.jpg')] bg-cover bg-repeat">
+    <main className="w-full overflow-x-hidden bg-base-100 bg-[url('/img/pattern.jpg')] bg-cover bg-repeat">
       <Navbar active={active} />
 
       {/* hero */}
@@ -63,16 +82,11 @@ export default function Home() {
       <Hero />
 
       {/* about */}
-      <section className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse w-screen items-center">
-          <Reveal delay={0.25}>
-            <div className="aura w-full basis-2/4 text-blue-500 shadow-lg dark:shadow-white/30">
-              <CodeMockup />
-            </div>
-          </Reveal>
-          <Reveal delay={0}>
-            <div className="basis-2/4 text-start flex-col justify-between text-base-content">
-              <h1 className="text-9xl font-bold leading-30 mb-10 text-shadow-lg/10">
+      <section className="hero bg-base-300 min-h-screen">
+        <div className="hero-content flex-col lg:flex-row w-full items-center">
+          <Reveal delay={0} className="w-full min-w-0 basis-2/4">
+            <div className="flex min-w-0 flex-col justify-between text-start text-base-content">
+              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-tight lg:leading-30 mb-10 text-shadow-lg/10 text-center lg:text-left">
                 <span
                   className="
                     relative inline-block px-6
@@ -101,7 +115,7 @@ export default function Home() {
                   ABOUT
                 </span>
               </h1>
-              <div className="text-xl flex flex-col gap-5">
+              <div className="text-xl flex flex-col gap-5 text-center lg:text-left">
                 <p className="">
                   Hi! I'm a Junior Software Developer with a background in
                   Automotive Industry Information Systems.
@@ -109,23 +123,35 @@ export default function Home() {
                 <p className="">
                   I have experience in designing and optimizing web-based
                   enterprise applications using PHP Frameworks like Laravel,
-                  CodeIgniter and integrating it with relational databases such as
-                  MySQL, PostgreSQL, Oracle, SQLite and Firebase.
+                  CodeIgniter and integrating it with relational databases such
+                  as MySQL, PostgreSQL, Oracle, SQLite and Firebase.
                 </p>
                 <p>
                   I am skilled in database optimization, Third-party API
-                  integration, responsive design slicing, and implementing secure,
-                  role-based access control user managements.
+                  integration, responsive design slicing, and implementing
+                  secure, role-based access control user managements.
                 </p>
-                <a href="/files/cv.pdf" target="_blank" download="CV ATS Alvaro Muyassar.pdf" className="btn btn-neutral rounded-lg w-50 transition ease-in-out duration-150 hover:-translate-y-0.5 hover:scale-104"><i className="fa fa-solid fa-download mr-1"></i> Download CV</a>
+                <a
+                  href="/files/cv.pdf"
+                  target="_blank"
+                  download="CV ATS Alvaro Muyassar.pdf"
+                  className="btn btn-neutral rounded-lg w-50 transition ease-in-out duration-150 hover:-translate-y-0.5 hover:scale-104 dark:shadow-md dark:shadow-white/50"
+                >
+                  <i className="fa fa-solid fa-download mr-1"></i> Download CV
+                </a>
               </div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.25} className="w-full min-w-0 basis-2/4">
+            <div className="aura block w-full min-w-0 overflow-hidden text-blue-500 shadow-lg dark:shadow-white/30">
+              <CodeMockup />
             </div>
           </Reveal>
         </div>
       </section>
 
       {/* experience */}
-      <section className="relative min-h-screen overflow-hidden bg-base-200 py-32">
+      <section className="relative min-h-screen overflow-hidden bg-base-200 pt-32 pb-16">
         <p
           aria-hidden="true"
           className="
@@ -161,6 +187,39 @@ export default function Home() {
               />
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="hero bg-base-300 py-16">
+        <div className="flex hero-content flex-col md:flex-row w-full justify-between align-center">
+          <Reveal delay={0.001} className="w-48">
+            <div className="flex flex-col mr-auto align-stretch text-base-content">
+              <h1 className="text-4xl font-[900] uppercase">Featured</h1>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-[1000] uppercase">Projects</h1>
+              <span className="bg-base-content py-1 w-24"></span>
+              {/* <p className="mt-3 p">Here are some of my projects that i've made</p> */}
+              <a href="" className="btn mt-3 btn-neutral shadow-md px-4 transition ease-in-out duration-150 hover:-translate-y-0.5 hover:scale-104 dark:shadow-md dark:shadow-white/50">View All My Projects <i className="fa-solid fa-arrow-right ms-2"></i></a>
+            </div>
+          </Reveal>
+          <div className="flex gap-2 flex-wrap align-stretch">
+            {/* <ProjectCard
+            imageTitle="workpermit"
+            title="Work Permit Management System"
+            description="Digitalized permit-to-work management and creation flow"
+            /> */}
+            {projects.map((items, index) => (
+              <Reveal
+              key={index}
+              delay={0.2 * index}
+              className=""
+              >
+                <ProjectCard
+                // key={index}
+                {...items}
+                />
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </main>

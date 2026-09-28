@@ -1,6 +1,6 @@
 export default function CodeMockup() {
   return (
-    <div className="mockup-code">
+    <div className="mockup-code w-full max-w-full">
       <pre data-prefix="1">
         <code>
           <span className="text-purple-400">export default function</span>{" "}
