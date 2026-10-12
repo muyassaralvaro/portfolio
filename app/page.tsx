@@ -196,9 +196,9 @@ export default function Home() {
 
                   <div className="mt-4 flex flex-wrap items-center gap-6">
                     <a
-                      href="/files/cv.pdf"
+                      href="/files/cv-redacted.pdf"
                       target="_blank"
-                      download="CV ATS Alvaro Muyassar.pdf"
+                      download="CV ATS Alvaro Muyassar V2 - Redacted.pdf"
                       className="btn btn-neutral rounded-lg px-6 transition ease-in-out duration-150 hover:-translate-y-0.5 hover:scale-105 dark:bg-white dark:text-black dark:shadow-md dark:shadow-white/30"
                     >
                       <i className="fa-solid fa-download mr-1.5" />
