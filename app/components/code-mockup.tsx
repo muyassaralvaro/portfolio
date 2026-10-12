@@ -1,6 +1,6 @@
 export default function CodeMockup() {
   return (
-    <div className="mockup-code">
+    <div className="mockup-code w-full max-w-full text-xs sm:text-[13px] leading-relaxed overflow-x-auto">
       <pre data-prefix="1">
         <code>
           <span className="text-purple-400">export default function</span>{" "}
@@ -29,7 +29,7 @@ export default function CodeMockup() {
 
       <pre data-prefix="5">
         <code>
-          {"        "}Hi, I'm{" "}
+          {"        "}Hi, I&apos;m{" "}
           <span className="text-blue-400 font-bold">Baro</span> 👋
         </code>
       </pre>
@@ -54,8 +54,7 @@ export default function CodeMockup() {
 
       <pre data-prefix="9">
         <code>
-          {"        "}from responsive interfaces to backend systems and
-          databases.
+          {"        "}from responsive interfaces to backend systems and databases.
         </code>
       </pre>
 

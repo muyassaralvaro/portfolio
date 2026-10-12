@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen bg-base-200 flex items-center overflow-hidden">
+    <section className="min-h-screen bg-base-200 flex items-center justify-center overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-20">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div
           className="
@@ -42,7 +42,7 @@ export default function Hero() {
                 className="
                   whitespace-nowrap
                   select-none
-                  text-[clamp(6rem,22vw,28rem)]
+                  text-[clamp(7.5rem,25vw,32rem)]
                   font-black
                   leading-none
                   tracking-[-0.09em]
@@ -120,11 +120,11 @@ export default function Hero() {
                 text-white
               "
             >
-              WITH GREAT POWER
+              TURNING IDEAS
               <br />
-              COMES GREAT
+              INTO IMPACTFUL
               <br />
-              RESPONSIBILITIES.
+              SOLUTIONS.
             </motion.p>
 
             <motion.div

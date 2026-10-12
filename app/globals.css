@@ -1,34 +1,85 @@
 @import "tailwindcss";
-@plugin "daisyui" {
-  themes:
-    light --default,
-    dark --prefersdark;
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #3b82f6;
+  --color-base-100: #ffffff;
+  --color-base-200: #f8fafc;
+  --color-base-300: #f1f5f9;
+  --color-base-content: #0f172a;
 }
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-/* @custom-variant light (&:where([data-theme=light], [data-theme=light] *)); */
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+  --color-primary: #3b82f6;
+  --color-base-100: #0f172a;
+  --color-base-200: #1e293b;
+  --color-base-300: #0b1120;
+  --color-base-content: #f8fafc;
+}
 
 :root {
-  --background: #c8c8c8;
-  --foreground: #171717;
+  --background: #ffffff;
+  --foreground: #0f172a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-theme="dark"] {
+  --background: #0f172a;
+  --foreground: #f8fafc;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+.hand-note {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.mockup-code {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.mockup-code pre {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.mockup-code pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
