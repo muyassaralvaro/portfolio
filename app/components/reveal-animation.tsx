@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function Reveal({
   children,
-  delay,
+  delay = 0,
   className,
 }: {
   children: React.ReactNode;
@@ -13,10 +13,10 @@ export default function Reveal({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 100 }}
+      initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, ease: [0.4, 1, 0.5, 1], delay: delay }}
+      viewport={{ once: true, margin: "0px 0px -40px 0px" }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
       className={className}
     >
       {children}

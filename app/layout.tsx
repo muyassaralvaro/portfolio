@@ -14,8 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Alvaro Muyassar",
-  description: "lorem ipsum dolor sit amet",
+  title: {
+    default: "Alvaro Muyassar — Full-Stack Developer",
+    template: "%s | Alvaro Muyassar",
+  },
+  description:
+    "Alvaro Muyassar builds enterprise web applications, workflow tools, and responsive interfaces.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -26,10 +30,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full w-full flex-col">{children}</body>
-      <Script
-        src={`https://kit.fontawesome.com/${process.env.NEXT_PUBLIC_FONTAWESOME_KIT_ID}.js`}
-        crossOrigin="anonymous"
-      />
+      {process.env.NEXT_PUBLIC_FONTAWESOME_KIT_ID ? (
+        <Script
+          src={`https://kit.fontawesome.com/${process.env.NEXT_PUBLIC_FONTAWESOME_KIT_ID}.js`}
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
+      ) : null}
     </html>
   );
 }
