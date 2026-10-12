@@ -142,7 +142,7 @@ function ProjectDialog({
 
             <div className="flex flex-wrap items-center justify-between gap-3 border-t border-base-content/10 pt-5">
               <span className="text-sm text-base-content/60">{project.role}</span>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <button
                   type="button"
                   onClick={onClose}
@@ -150,6 +150,16 @@ function ProjectDialog({
                 >
                   Close
                 </button>
+                {project.website && (
+                  <a
+                    href={project.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline btn-sm"
+                  >
+                    Visit live site <span aria-hidden="true">↗</span>
+                  </a>
+                )}
                 <Link
                   href={`/projects/${project.slug}`}
                   className="btn btn-primary bg-blue-500 text-white hover:bg-blue-600"

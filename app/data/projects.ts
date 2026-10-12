@@ -13,6 +13,7 @@ export type Project = {
   summary: string;
   overview: string;
   role: string;
+  website?: string;
   stack: string[];
   highlights: string[];
   images: ProjectImage[];
@@ -27,6 +28,7 @@ export const projects: Project[] = [
     summary: "Tracks meals, nutrition targets, and weight progress; Laravel 13 agents estimate nutrients from meal photos.",
     overview: "A mobile-first meal tracker with a Next.js frontend and Laravel 13 API. Users log meals, review daily targets and weight trends, and edit photo-based nutrition estimates before saving.",
     role: "Full-stack development",
+    website: "https://nourish.my.id",
     stack: ["Next.js 16", "TypeScript", "Laravel 13", "REST API", "Laravel AI SDK", "Google OAuth"],
     highlights: [
       "Used laravel/ai and MealPhotoAgent for structured meal and nutrient estimates.",

@@ -246,7 +246,7 @@ export default function Home() {
 
             <div className="relative">
               <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical text-base-content">
-                {experiences.map((item, index) => (
+                {experiences.toReversed().map((item, index) => (
                   <TimelinePoint
                     key={item.year + item.title}
                     {...item}
