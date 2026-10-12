@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
+import BackLink from "./back-link";
 import { getProject, projects } from "../../data/projects";
 
 type ProjectPageProps = {
@@ -35,12 +36,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <main className="min-h-screen bg-base-200 px-5 pb-20 pt-24 text-base-content sm:px-8 sm:pt-28">
         <article className="mx-auto max-w-7xl">
           <div className="flex items-center gap-4">
-            <Link
-              href="/#projects"
-              className="inline-flex items-center gap-2 rounded-lg border border-base-content/15 bg-base-100 px-3.5 py-1.5 text-sm font-semibold shadow-xs transition hover:border-blue-500 hover:text-blue-500"
-            >
-              <span aria-hidden="true">←</span> Back
-            </Link>
+            <BackLink className="inline-flex items-center gap-2 rounded-lg border border-base-content/15 bg-base-100 px-3.5 py-1.5 text-sm font-semibold shadow-xs transition hover:border-blue-500 hover:text-blue-500">
+              Back
+            </BackLink>
             <Link
               href="/projects"
               className="text-sm font-medium text-base-content/70 hover:text-base-content hover:underline"
@@ -59,6 +57,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <p className="mt-5 max-w-3xl text-lg leading-8 text-base-content/75">
               {project.summary}
             </p>
+            {project.website && (
+              <a
+                href={project.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline mt-6 rounded-xl"
+              >
+                Visit live site <span aria-hidden="true">↗</span>
+              </a>
+            )}
           </header>
 
           <dl className="my-10 grid gap-4 rounded-xl border border-base-content/10 bg-base-100 p-5 sm:grid-cols-2 sm:p-6">
@@ -85,26 +93,28 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           </dl>
 
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="max-w-4xl space-y-10">
             <section>
-              <h2 className="text-2xl font-black">Overview</h2>
-              <p className="mt-4 max-w-2xl leading-7 text-base-content/80">
-                {project.overview}
-              </p>
+              <h2 className="text-2xl font-black">What it does</h2>
+              <div className="mt-4 space-y-4 leading-8 text-base-content/80">
+                {project.whatItDoes.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             </section>
             <section>
-              <h2 className="text-2xl font-black">What I worked on</h2>
-              <ul className="mt-4 list-disc space-y-3 pl-5 leading-7 text-base-content/80">
-                {project.highlights.map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
+              <h2 className="text-2xl font-black">How I built it</h2>
+              <div className="mt-4 space-y-4 leading-8 text-base-content/80">
+                {project.howBuilt.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
                 ))}
-              </ul>
+              </div>
             </section>
           </div>
 
           <section className="mt-14">
             <h2 className="mb-5 text-2xl font-black">Screenshots</h2>
-            <div className={project.slug === "nourish" ? "grid max-w-4xl gap-4 sm:grid-cols-2" : "grid max-w-6xl gap-6"}>
+            <div className={project.slug === "nourish" ? "mx-auto grid max-w-4xl gap-4 sm:grid-cols-2" : "mx-auto grid max-w-6xl gap-6"}>
               {project.images.map((shot) => (
                 <figure key={shot.src} className="overflow-hidden rounded-xl border border-base-content/10 bg-base-100 shadow-sm">
                   <Image
@@ -122,12 +132,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </section>
 
           <div className="mt-12 flex flex-wrap items-center gap-4 border-t border-base-content/10 pt-6">
-            <Link
-              href="/#projects"
-              className="btn btn-neutral rounded-xl"
-            >
-              <span aria-hidden="true">←</span> Back to Portfolio
-            </Link>
+            <BackLink className="btn btn-neutral rounded-xl">
+              Back to previous page
+            </BackLink>
             <Link
               href="/projects"
               className="btn btn-primary bg-blue-500 text-white hover:bg-blue-600"
