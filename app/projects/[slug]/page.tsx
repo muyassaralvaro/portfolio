@@ -93,20 +93,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           </dl>
 
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="max-w-4xl space-y-10">
             <section>
-              <h2 className="text-2xl font-black">Overview</h2>
-              <p className="mt-4 max-w-2xl leading-7 text-base-content/80">
-                {project.overview}
-              </p>
+              <h2 className="text-2xl font-black">What it does</h2>
+              <div className="mt-4 space-y-4 leading-8 text-base-content/80">
+                {project.whatItDoes.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             </section>
             <section>
-              <h2 className="text-2xl font-black">What I worked on</h2>
-              <ul className="mt-4 list-disc space-y-3 pl-5 leading-7 text-base-content/80">
-                {project.highlights.map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
+              <h2 className="text-2xl font-black">How I built it</h2>
+              <div className="mt-4 space-y-4 leading-8 text-base-content/80">
+                {project.howBuilt.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
                 ))}
-              </ul>
+              </div>
             </section>
           </div>
 
