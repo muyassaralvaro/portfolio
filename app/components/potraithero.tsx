@@ -15,7 +15,7 @@ export default function Hero() {
             h-[clamp(18rem,32vw,32rem)]
           "
         >
-          {/* BLUE PANEL + ALVARO REVEAL TOGETHER */}
+          {/* BLUE PANEL + BRAND REVEAL TOGETHER */}
           <motion.div
             initial={{
               clipPath: "inset(0 50% 0 50%)",
@@ -36,9 +36,9 @@ export default function Hero() {
               dark:bg-blue-300
             "
           >
-            {/* ALVARO */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <h1
+            <h1 className="sr-only">Alvaro Muyassar</h1>
+            <div aria-hidden="true" className="absolute inset-0 hidden items-center justify-center sm:flex">
+              <span
                 className="
                   whitespace-nowrap
                   select-none
@@ -51,7 +51,7 @@ export default function Hero() {
                 "
               >
                 ALVARO
-              </h1>
+              </span>
             </div>
 
             {/* Supporting text */}
@@ -187,6 +187,12 @@ export default function Hero() {
               drop-shadow-lg
             "
           />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-5 left-1/2 z-20 -translate-x-1/2 select-none whitespace-nowrap text-[clamp(6rem,25vw,9rem)] font-black leading-none tracking-tight text-white text-shadow-lg/30 sm:hidden"
+          >
+            A.M
+          </span>
         </div>
       </div>
     </section>

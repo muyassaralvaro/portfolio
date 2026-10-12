@@ -74,7 +74,7 @@ export default function Footer() {
               TURNING IDEAS INTO IMPACTFUL SOLUTIONS.
             </span>
           </div>
-          <p>© {currentYear} Alvaro. All rights reserved.</p>
+          <p>© {currentYear} A.M. All rights reserved.</p>
         </div>
       </div>
     </footer>

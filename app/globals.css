@@ -60,13 +60,25 @@ html {
 }
 
 .mockup-code pre {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  column-gap: 0.75rem;
+  width: 100%;
   min-width: 0;
   max-width: 100%;
 }
 
+.mockup-code pre::before {
+  margin-right: 0;
+}
+
 .mockup-code pre code {
+  display: block;
+  min-width: 0;
+  padding-left: 8ch;
+  text-indent: -8ch;
   white-space: pre-wrap;
-  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 @media (prefers-reduced-motion: reduce) {

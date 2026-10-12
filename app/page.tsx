@@ -145,22 +145,22 @@ export default function Home() {
           id="about"
           className="hero min-h-screen scroll-mt-16 bg-base-200 py-24 sm:py-32"
         >
-          <div className="hero-content flex-col items-center gap-12 lg:flex-row-reverse w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-            <Reveal delay={0.2} className="w-full basis-2/4">
+          <div className="hero-content min-w-0 w-full max-w-7xl flex-col items-center gap-12 px-4 sm:px-6 lg:flex-row-reverse lg:px-8">
+            <Reveal delay={0.2} className="min-w-0 w-full basis-2/4">
               <div className="aura w-full text-blue-500 shadow-xl dark:shadow-white/30">
                 <CodeMockup />
               </div>
             </Reveal>
 
-            <Reveal delay={0} className="w-full basis-2/4">
+            <Reveal delay={0} className="min-w-0 w-full basis-2/4">
               <div className="flex flex-col justify-between text-start text-base-content">
-                <h2 className="mb-10 text-7xl font-bold leading-none sm:text-8xl lg:text-9xl text-shadow-lg/10">
+                <h2 className="mb-10 text-center text-[clamp(3rem,15vw,4.5rem)] font-bold leading-none text-shadow-lg/10 sm:text-8xl lg:text-left lg:text-[clamp(5rem,8vw,8rem)]">
                   <span
                     className="
-                      relative inline-block px-6
+                      relative inline-block px-3 sm:px-6
                       before:content-['']
                       before:absolute
-                      before:-inset-x-6
+                      before:-inset-x-2 sm:before:-inset-x-6
                       before:-inset-y-2
                       before:border-3
                       before:border-current
@@ -170,7 +170,7 @@ export default function Home() {
                       before:pointer-events-none
                       after:content-['']
                       after:absolute
-                      after:-inset-x-5
+                      after:-inset-x-2 sm:after:-inset-x-5
                       after:-inset-y-3
                       after:border-4
                       after:border-current
