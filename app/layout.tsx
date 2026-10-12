@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -29,14 +28,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-theme="light"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full w-full flex-col">{children}</body>
-      {process.env.NEXT_PUBLIC_FONTAWESOME_KIT_ID ? (
-        <Script
-          src={`https://kit.fontawesome.com/${process.env.NEXT_PUBLIC_FONTAWESOME_KIT_ID}.js`}
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a"
           crossOrigin="anonymous"
-          strategy="lazyOnload"
         />
-      ) : null}
+      </head>
+      <body className="flex min-h-full w-full flex-col">{children}</body>
     </html>
   );
 }
