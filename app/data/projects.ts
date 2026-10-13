@@ -24,7 +24,7 @@ export const projects: Project[] = [
   {
     slug: "nourish",
     title: "Nourish",
-    category: "Nutrition tracker",
+    category: "AI Nutrition tracker",
     period: "2026",
     summary: "Tracks meals, nutrition targets, and weight progress; Laravel 13 agents estimate nutrients from meal photos.",
     whatItDoes: [

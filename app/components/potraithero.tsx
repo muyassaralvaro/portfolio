@@ -187,12 +187,15 @@ export default function Hero() {
               drop-shadow-lg
             "
           />
-          <span
+          <motion.span
             aria-hidden="true"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.65, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="pointer-events-none absolute bottom-5 left-1/2 z-20 -translate-x-1/2 select-none whitespace-nowrap text-[clamp(6rem,25vw,9rem)] font-black leading-none tracking-tight text-white text-shadow-lg/30 sm:hidden"
           >
             A.M
-          </span>
+          </motion.span>
         </div>
       </div>
     </section>
