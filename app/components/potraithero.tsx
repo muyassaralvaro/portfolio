@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
+import { usePageReady } from "./initial-load";
 
 export default function Hero() {
+  const ready = usePageReady();
+
   return (
     <section className="min-h-screen bg-base-200 flex items-center justify-center overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-20">
       <div className="w-full px-4 sm:px-6 lg:px-8">
@@ -20,9 +23,7 @@ export default function Hero() {
             initial={{
               clipPath: "inset(0 50% 0 50%)",
             }}
-            animate={{
-              clipPath: "inset(0 0% 0 0%)",
-            }}
+            animate={{ clipPath: ready ? "inset(0 0% 0 0%)" : "inset(0 50% 0 50%)" }}
             transition={{
               duration: 1,
               ease: [0.22, 1, 0.36, 1],
@@ -57,7 +58,7 @@ export default function Hero() {
             {/* Supporting text */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
               transition={{ delay: 0.75, duration: 0.45 }}
               className="
                 absolute
@@ -78,7 +79,7 @@ export default function Hero() {
 
             <motion.p
               initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
               transition={{ delay: 0.85, duration: 0.45 }}
               className="
                 absolute
@@ -104,7 +105,7 @@ export default function Hero() {
 
             <motion.p
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              animate={{ opacity: ready ? 1 : 0 }}
               transition={{ delay: 1, duration: 0.45 }}
               className="
                 absolute
@@ -129,7 +130,7 @@ export default function Hero() {
 
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              animate={{ opacity: ready ? 1 : 0 }}
               transition={{ delay: 1.05, duration: 0.45 }}
               className="
                 absolute
@@ -158,17 +159,17 @@ export default function Hero() {
               opacity: 0,
               y: 45,
             }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
+            animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 45 }}
             transition={{
               delay: 0.35,
               duration: 0.8,
               ease: [0.22, 1, 0.36, 1],
             }}
-            src="/img/me.png"
+            src="/img/me.webp"
             alt="Alvaro Muyassar"
+            width={1995}
+            height={1995}
+            fetchPriority="high"
             className="
               pointer-events-none
               absolute
@@ -190,7 +191,7 @@ export default function Hero() {
           <motion.span
             aria-hidden="true"
             initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
             transition={{ delay: 0.65, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="pointer-events-none absolute bottom-5 left-1/2 z-20 -translate-x-1/2 select-none whitespace-nowrap text-[clamp(6rem,25vw,9rem)] font-black leading-none tracking-tight text-white text-shadow-lg/30 sm:hidden"
           >

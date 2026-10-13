@@ -4,11 +4,23 @@ import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import ProjectShowcase from "../components/project-showcase";
 import { projects } from "../data/projects";
+import { socialImage } from "../data/site";
 
+const description = "Explore five projects by Alvaro Muyassar: work permits, EHS Academy, Genba safety, software audits, and Nourish nutrition tracking.";
 export const metadata: Metadata = {
-  title: "Projects",
-  description:
-    "Selected enterprise applications and workflow tools by Alvaro Muyassar.",
+  title: "Projects and Case Studies",
+  description,
+  alternates: { canonical: "/projects" },
+  openGraph: {
+    title: "Projects and Case Studies | Alvaro Muyassar",
+    description,
+    url: "/projects",
+    siteName: "Alvaro Muyassar",
+    locale: "en_US",
+    type: "website",
+    images: [socialImage],
+  },
+  twitter: { card: "summary_large_image", title: "Projects and Case Studies | Alvaro Muyassar", description, images: [socialImage] },
 };
 
 export default function ProjectsPage() {

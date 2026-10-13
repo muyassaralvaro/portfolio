@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import InitialLoad from "./components/initial-load";
+import { siteUrl, socialImage } from "./data/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,13 +14,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title = "Alvaro Muyassar — Full-Stack Developer";
+const description = "Alvaro Muyassar builds Laravel enterprise systems and Next.js apps. Explore five case studies, from workplace safety and software audits to Nourish.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Alvaro Muyassar — Full-Stack Developer",
+    default: title,
     template: "%s | Alvaro Muyassar",
   },
-  description:
-    "Alvaro Muyassar builds enterprise web applications, workflow tools, and responsive interfaces.",
+  description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title,
+    description,
+    url: "/",
+    siteName: "Alvaro Muyassar",
+    locale: "en_US",
+    type: "website",
+    images: [socialImage],
+  },
+  twitter: { card: "summary_large_image", title, description, images: [socialImage] },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -36,7 +52,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           crossOrigin="anonymous"
         />
       </head>
-      <body className="flex min-h-full w-full flex-col">{children}</body>
+      <body className="flex min-h-full w-full flex-col">
+        <InitialLoad>{children}</InitialLoad>
+        <noscript><style>{"#site-loading{display:none!important}"}</style></noscript>
+      </body>
     </html>
   );
 }
