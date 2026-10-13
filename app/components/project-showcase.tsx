@@ -160,7 +160,7 @@ function ProjectDialog({
                   rel="noopener noreferrer"
                   className="btn btn-outline btn-sm"
                 >
-                  Visit live site <span aria-hidden="true">↗</span>
+                  Visit site <span aria-hidden="true">↗</span>
                 </a>
               )}
               <Link

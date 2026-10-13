@@ -64,7 +64,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 rel="noopener noreferrer"
                 className="btn btn-outline mt-6 rounded-xl"
               >
-                Visit live site <span aria-hidden="true">↗</span>
+                Visit site <span aria-hidden="true">↗</span>
               </a>
             )}
           </header>
@@ -93,7 +93,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           </dl>
 
-          <div className="max-w-4xl space-y-10">
+          <div className="space-y-10">
             <section>
               <h2 className="text-2xl font-black">What it does</h2>
               <div className="mt-4 space-y-4 leading-8 text-base-content/80">

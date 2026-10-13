@@ -354,7 +354,10 @@ export default function Home() {
         >
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <Reveal className="mb-12">
-              <h2 className="text-5xl font-[950] uppercase tracking-tight sm:text-6xl">
+              <p className="text-base font-extrabold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+                SELECTED
+              </p>
+              <h2 className="text-4xl font-[950] uppercase tracking-tight sm:text-6xl">
                 ACHIEVEMENTS
               </h2>
               <span className="mt-3 block h-1.5 w-20 bg-base-content" />
