@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = "Alvaro Muyassar — Full-Stack Developer";
-const description = "Alvaro Muyassar builds Laravel enterprise systems and Next.js apps. Explore five case studies, from workplace safety and software audits to Nourish.";
+const title = "Alvaro Muyassar | Full-Stack Developer Portfolio";
+const description = "Explore Alvaro Muyassar's portfolio: full-stack Laravel and Next.js projects spanning operational automation, software audits, and nutrition tracking.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

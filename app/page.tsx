@@ -185,7 +185,7 @@ export default function Home() {
 
                 <div className="flex flex-col gap-5 text-base sm:text-lg leading-relaxed text-base-content/90">
                   <p>
-                    Hi! I&apos;m a Junior Software Developer with a background in Automotive Industry Information Systems.
+                    Hi! I&apos;m Alvaro Muyassar, a Junior Software Developer with a background in Automotive Industry Information Systems.
                   </p>
                   <p>
                     I have experience in designing and optimizing web-based enterprise applications using PHP Frameworks like Laravel, CodeIgniter and integrating it with relational databases such as MySQL, PostgreSQL, Oracle, SQLite and Firebase.
