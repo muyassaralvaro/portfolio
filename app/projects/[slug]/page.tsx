@@ -6,6 +6,7 @@ import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 import BackLink from "./back-link";
 import { getProject, projects } from "../../data/projects";
+import { socialImage } from "../../data/site";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -18,10 +19,17 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
+  if (!project) notFound();
+  const title = `${project.title} | Alvaro Muyassar`;
+  const description = `${project.summary} Read the full case study by Alvaro Muyassar.`;
+  const url = `/projects/${slug}`;
 
   return {
-    title: project?.title ?? "Project",
-    description: project?.summary ?? "Project case study by Alvaro Muyassar.",
+    title: project.title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { title, description, url, siteName: "Alvaro Muyassar", locale: "en_US", type: "website", images: [socialImage] },
+    twitter: { card: "summary_large_image", title, description, images: [socialImage] },
   };
 }
 

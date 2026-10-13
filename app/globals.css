@@ -81,6 +81,15 @@ html {
   overflow-wrap: anywhere;
 }
 
+.loading-line {
+  animation: loading-line 1.1s ease-in-out infinite;
+}
+
+@keyframes loading-line {
+  0%, 100% { transform: scaleX(0.25); opacity: 0.65; }
+  50% { transform: scaleX(1); opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -93,5 +102,10 @@ html {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .loading-line {
+    animation: none;
+    transform: none;
   }
 }
